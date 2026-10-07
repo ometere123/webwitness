@@ -1,8 +1,6 @@
-name: mosaic-v5-proof
+name: "mosaic-v5-proof"
 
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   mosaic-v5-proof:
