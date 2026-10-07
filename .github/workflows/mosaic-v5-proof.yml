@@ -1,0 +1,23 @@
+name: mosaic-v5-proof
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  mosaic-v5-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run verify:schema
+        env:
+          NEXT_PUBLIC_WEBWITNESS_CONTRACT: ${{ vars.NEXT_PUBLIC_WEBWITNESS_CONTRACT }}
+          NEXT_PUBLIC_GENLAYER_ENDPOINT: https://studio.genlayer.com/api
+          NEXT_PUBLIC_GENLAYER_CHAIN: studionet
+      - run: npm run build
