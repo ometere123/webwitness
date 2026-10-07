@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { WalletPanel } from "./wallet-panel";
 
 const NAV_LINKS = [
+  { href: "/proof", label: "Proof" },
   { href: "/cases", label: "Cases" },
   { href: "/cases/new", label: "New Case" },
   { href: "/dashboard", label: "Dashboard" },
